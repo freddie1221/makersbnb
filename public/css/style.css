@@ -1,0 +1,16 @@
+h2 {
+  text-align: center;
+  color: black
+} 
+
+p {
+  text-align: center;
+  color: #3679B1
+}
+
+
+#registration-box {
+  margin: auto;
+  width: 30%;
+}
+
