@@ -1,4 +1,13 @@
-# makersbnb
+# MakersBnB #
+
+### Stack ###
+
+Ruby Front/Back
+Sinatra Web Framework
+Active Record ORM
+Postgresql Database
+
+### Specifiation ###
 
 This application allows signed-up users to:
 
@@ -10,47 +19,47 @@ This application allows signed-up users to:
  - Nights for which a space has already been booked should not be available for users to book that space.
  - Until a user has confirmed a booking request, that space can still be booked for that night.
 
-# User Stories #
+## User Stories ##
 
-## User Story 1 ##
-As a Host,
-So that I can list a space
-I can sign up to MakersBnB
+### User Story 1 ###
+* As a Host,
+* So that I can list a space
+* I can sign up to MakersBnB
 
-## User Story 2 ##
-As a Host
-So that I can use the product for my multiple properties
-I can list multiple spaces
+### User Story 2 ###
+* As a Host
+* So that I can use the product for my multiple properties
+* I can list multiple spaces
 
-## User Story 3 ##
-As a Host
-So that I can provide relevant information to potential Guests
-I can provide headline details about my property/s
+### User Story 3 ###
+* As a Host
+* So that I can provide relevant information to potential Guests
+* I can provide headline details about my property/s
 
-## User Story 4 ##
-As a Host.
-So that the Guest knows if there is a suitable date.
-Can show the range of dates my space/s are available.
+### User Story 4 ###
+* As a Host.
+* So that the Guest knows if there is a suitable date.
+* Can show the range of dates my space/s are available.
 
-## User Story 5 ##
-As a Guest
-So that I can book a room
-I can request to hire a property
+### User Story 5 ###
+* As a Guest
+* So that I can book a room
+* I can request to hire a property
 
-## User Story 5.5 ##
-As a Host
-So that I know who is staying at my property
-I can confirm a booking request.
+### User Story 5.5 ###
+* As a Host
+* So that I know who is staying at my property
+* I can confirm a booking request.
 
-## User Story 6 ##
-As a Guest
-So that a space cannot be double booked
-Dates with a confirmed booking will not be available to others.
+### User Story 6 ###
+* As a Guest
+* So that a space cannot be double booked
+* Dates with a confirmed booking will not be available to others.
 
-## User Story 7 ##
-As a Host
-So that I do not miss potential Guests
-Spaces are available to Guests until a request is confirmed
+### User Story 7 ###
+* As a Host
+* So that I do not miss potential Guests
+* Spaces are available to Guests until a request is confirmed
 
 
 CRC Cards
