@@ -10,10 +10,24 @@ feature 'home page' do
   scenario 'user clicks login link' do
     visit '/'
     click_link 'Login'
-    expect(page).to have_content('Log in to MakersBnB')
+    expect(page).to have_content('Please login below')
   end
 
 end
+
+feature 'login' do
+  scenario 'user enter login details' do
+    visit '/login'
+    fill_in('email', with: 'james.malvern@gmail.com')
+    fill_in('password', with: 'password')
+    click_link 'Login'
+    expect(page).to have_content('Book a Property')
+  end
+
+end
+
+
+
 
 # feature 'login' do
 #   scenario 'enters name and email address' do

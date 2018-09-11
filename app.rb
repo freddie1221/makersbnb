@@ -9,6 +9,14 @@ class Makersbnb < Sinatra::Base
     erb :login
   end
 
+  post '/logged_in' do
+    $email = params[:email]
+    $password = params[:password]
+
+    puts params
+    redirect '/properties'
+  end
+
   post '/register' do
     $name = params[:name]
     $email = params[:email]
