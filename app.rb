@@ -39,6 +39,10 @@ class Makersbnb < Sinatra::Base
     erb :'properties/new', :layout => :layout_logged_in
   end
 
+  post '/properties/book' do
+    redirect '/properties'
+  end
+
   get '/accounts' do
     @accounts = Account.all
     erb :accounts
