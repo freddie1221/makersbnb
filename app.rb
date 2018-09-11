@@ -27,7 +27,12 @@ class Makersbnb < Sinatra::Base
 
   get '/properties' do
     @name = $name
-    erb :properties, :layout => :layout_logged_in
+    erb :'properties/index', :layout => :layout_logged_in
+  end
+
+  get '/properties/new' do
+    @name = $name
+    erb :'properties/new', :layout => :layout_logged_in
   end
 
   run! if app_file == $0
