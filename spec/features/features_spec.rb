@@ -20,7 +20,7 @@ feature 'login' do
     visit '/login'
     fill_in('email', with: 'james.malvern@gmail.com')
     fill_in('password', with: 'password')
-    click_link 'Login'
+    click_button 'Login'
     expect(page).to have_content('Book a Property')
   end
 
