@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'sinatra'
 require 'sinatra/activerecord'
+require 'bcrypt'
 
 set :database, "sqlite3:makersbnb.db.sqlite3"
 
@@ -17,15 +18,23 @@ class Makersbnb < Sinatra::Base
   end
 
   post '/logged_in' do
-    session[:user] = Account.find_by(email: params[:email])
-    puts params
-    redirect '/properties'
+
+    account = Account.find_by(email: params[:email])
+    correct_password = BCrypt::Password.new(account.password)
+    if correct_password.is_password?(params[:password])
+      session[:user] = account
+      redirect '/properties'
+    else
+      'PASSWORD REJECTED'
+    end
+
   end
 
   post '/register' do
-    Account.create({name: params[:name], email: params[:email]})
+    password = BCrypt::Password.create(params[:password])
+    Account.create({name: params[:name], email: params[:email], password: password})
     session[:user] = Account.find_by(email: params[:email])
-    puts params
+    
     redirect '/properties'
   end
 
