@@ -30,8 +30,13 @@ class Makersbnb < Sinatra::Base
   end
 
   get '/properties' do
-    @user = session[:user]
-    erb :properties, :layout => :layout_logged_in
+    @name = $name
+    erb :'properties/index', :layout => :layout_logged_in
+  end
+
+  get '/properties/new' do
+    @name = $name
+    erb :'properties/new', :layout => :layout_logged_in
   end
 
   get '/accounts' do
