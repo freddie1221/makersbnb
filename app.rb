@@ -2,7 +2,11 @@ require 'sinatra/base'
 
 class Makersbnb < Sinatra::Base
   get '/' do
-    erb :home, :layout => :layout 
+    erb :home, :layout => :layout
+  end
+
+  get '/login' do
+    erb :login
   end
 
   post '/register' do
@@ -15,7 +19,7 @@ class Makersbnb < Sinatra::Base
 
   get '/properties' do
     @name = $name
-    erb :properties
+    erb :properties, :layout => :layout_logged_in
   end
 
   run! if app_file == $0
