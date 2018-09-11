@@ -1,4 +1,8 @@
 require 'sinatra/base'
+require 'sinatra'
+require 'sinatra/activerecord'
+
+set :database, "sqlite3:makersbnb.db.sqlite3"
 
 class Makersbnb < Sinatra::Base
   get '/' do
@@ -7,3 +11,5 @@ class Makersbnb < Sinatra::Base
 
   run! if app_file == $0
 end
+
+require './lib/account.rb'
