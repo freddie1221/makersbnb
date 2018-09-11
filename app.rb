@@ -17,3 +17,4 @@ class Makersbnb < Sinatra::Base
 end
 
 require './lib/account.rb'
+require './lib/property.rb'
