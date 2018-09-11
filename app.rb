@@ -6,11 +6,16 @@ class Makersbnb < Sinatra::Base
   end
 
   post '/register' do
-    redirect '/helloworld'
+    $name = params[:name]
+    $email = params[:email]
+
+    puts params
+    redirect '/properties'
   end
 
-  get '/helloworld' do
-    'hello world'
+  get '/properties' do
+    @name = $name
+    erb :properties
   end
 
   run! if app_file == $0
