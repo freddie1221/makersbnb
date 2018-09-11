@@ -1,5 +1,13 @@
-describe Account do
-  it 'reads from the "accounts" table' do
+
+
+# describe Account do
+  
+
+#   before :each do
     
-  end
-end
+#   end
+
+#   it 'reads from the "accounts" table' do
+#     Account.create({name: 'Freddie Lawson', email: 'fredlawson@gmail.com'})
+#   end
+# end

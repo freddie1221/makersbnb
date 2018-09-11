@@ -5,6 +5,9 @@ require 'sinatra/activerecord'
 set :database, "sqlite3:makersbnb.db.sqlite3"
 
 class Makersbnb < Sinatra::Base
+
+  enable :sessions
+
   get '/' do
     erb :home, :layout => :layout
   end
@@ -14,23 +17,20 @@ class Makersbnb < Sinatra::Base
   end
 
   post '/logged_in' do
-    $email = params[:email]
-    $password = params[:password]
-
+    session[:user] = Account.find_by(email: params[:email])
     puts params
     redirect '/properties'
   end
 
   post '/register' do
-    $name = params[:name]
-    $email = params[:email]
-
+    Account.create({name: params[:name], email: params[:email]})
+    session[:user] = Account.find_by(email: params[:email])
     puts params
     redirect '/properties'
   end
 
   get '/properties' do
-    @name = $name
+    @user = session[:user]
     erb :properties, :layout => :layout_logged_in
   end
 
