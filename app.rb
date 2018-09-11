@@ -9,6 +9,10 @@ class Makersbnb < Sinatra::Base
     'Hello World'
   end
 
+  get '/accounts' do
+    @accounts = Account.all
+    erb :accounts
+  end
   run! if app_file == $0
 end
 

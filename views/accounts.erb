@@ -1,0 +1,13 @@
+<html>
+  <head>
+    <title>Accounts</title>
+  </head>
+
+  <body>
+    <ul>
+      <% @accounts.each do |account| %>
+      <li><%= account.email %></li>
+      <% end %>
+    </ul>
+  </body>
+</html>
