@@ -23,7 +23,7 @@ class Makersbnb < Sinatra::Base
     erb :login
   end
 
-  post '/sessions/new' do
+  post '/sessions' do
     account = Account.find_by(email: params[:email])
     correct_password = BCrypt::Password.new(account.password)
     if correct_password.is_password?(params[:password])
@@ -33,7 +33,6 @@ class Makersbnb < Sinatra::Base
       'PASSWORD REJECTED'
     end
   end
-
 
   get '/properties' do
     @name = session[:user].name
@@ -45,14 +44,16 @@ class Makersbnb < Sinatra::Base
     erb :'properties/new', :layout => :layout_logged_in
   end
 
-  post '/properties/book' do
+  post '/properties' do
     redirect '/properties'
   end
 
-  get '/accounts' do
-    @accounts = Account.all
-    erb :accounts
+  get '/bookings' do
   end
+
+  post '/bookings' do
+  end
+
   run! if app_file == $0
 end
 
