@@ -5,7 +5,6 @@ require 'sinatra/activerecord'
 set :database, "sqlite3:makersbnb.db.sqlite3"
 
 class Makersbnb < Sinatra::Base
-
   enable :sessions
 
   get '/' do
