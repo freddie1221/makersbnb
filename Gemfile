@@ -6,7 +6,11 @@ git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
 
 # gem "rails"
 
-
+gem 'bcrypt'
 gem 'sinatra'
 gem 'rspec'
 gem 'capybara'
+gem 'activerecord'
+gem 'sinatra-activerecord'
+gem 'sqlite3'
+gem 'rake'
