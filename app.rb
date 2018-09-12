@@ -19,11 +19,18 @@ class Makersbnb < Sinatra::Base
     redirect '/properties'
   end
 
-  get '/sessions/new' do
+  get '/session/new' do
     erb :login
   end
 
-  post '/sessions' do
+  get '/session/delete' do
+    p session
+    session.clear
+    p session
+    redirect '/'
+  end
+
+  post '/session' do
     account = Account.find_by(email: params[:email])
     correct_password = BCrypt::Password.new(account.password)
     if correct_password.is_password?(params[:password])
