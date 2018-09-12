@@ -22,7 +22,7 @@ end
 feature 'login' do
   scenario 'user enters login details' do
     add_user_james
-    visit '/login'
+    visit '/sessions/new'
     expect(page).to have_content('Please login below')
     login
     expect(page).to have_content('Book a Property')
@@ -31,7 +31,7 @@ feature 'login' do
   feature 'property' do
     scenario 'user clicks the \'List a Property\' button' do
       add_user_james
-      visit 'login'
+      visit '/sessions/new'
       login
       expect(page).to have_content('Book a Property')
       click_button 'List a Property'
