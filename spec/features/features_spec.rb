@@ -1,10 +1,13 @@
 feature 'home page' do
+
+  before(:each) do
+    clear_tables
+  end
+
   scenario 'enters name and email address' do
     visit '/'
     expect(page).to have_content('Please fill in the registration form below')
-    fill_in('email', with: 'james.malvern@gmail.com')
-    fill_in('name', with: 'James')
-    click_button 'Register'
+    register
     expect(page).to have_content('Book a Property')
   end
 
@@ -18,17 +21,18 @@ end
 
 feature 'login' do
   scenario 'user enters login details' do
-    visit '/login'
+    add_user_james
+    visit '/sessions/new'
     expect(page).to have_content('Please login below')
-    fill_in('email', with: 'james.malvern@gmail.com')
-    fill_in('password', with: 'password')
-    click_button 'Login'
+    login
     expect(page).to have_content('Book a Property')
   end
 
   feature 'property' do
     scenario 'user clicks the \'List a Property\' button' do
-      visit '/properties'
+      add_user_james
+      visit '/sessions/new'
+      login
       expect(page).to have_content('Book a Property')
       click_button 'List a Property'
       expect(page).to have_content('Please fill in the property form below')
@@ -37,6 +41,7 @@ feature 'login' do
 
   feature 'show properties' do
     scenario 'user clicks the \'Show Properties\' button' do
+
       visit '/properties'
       expect(page).to have_content('Book a Property')
       fill_in('date_from', with: '22/09/2018')
