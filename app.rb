@@ -18,7 +18,6 @@ class Makersbnb < Sinatra::Base
   end
 
   post '/logged_in' do
-
     account = Account.find_by(email: params[:email])
     correct_password = BCrypt::Password.new(account.password)
     if correct_password.is_password?(params[:password])
@@ -27,24 +26,22 @@ class Makersbnb < Sinatra::Base
     else
       'PASSWORD REJECTED'
     end
-
   end
 
   post '/register' do
     password = BCrypt::Password.create(params[:password])
     Account.create({name: params[:name], email: params[:email], password: password})
     session[:user] = Account.find_by(email: params[:email])
-    
     redirect '/properties'
   end
 
   get '/properties' do
-    @name = $name
+    @name = session[:user].name
     erb :'properties/index', :layout => :layout_logged_in
   end
 
   get '/properties/new' do
-    @name = $name
+    @name = session[:user].name
     erb :'properties/new', :layout => :layout_logged_in
   end
 
