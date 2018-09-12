@@ -6,7 +6,6 @@ require 'bcrypt'
 set :database, "sqlite3:makersbnb.db.sqlite3"
 
 class Makersbnb < Sinatra::Base
-
   enable :sessions
 
   get '/' do
@@ -43,6 +42,10 @@ class Makersbnb < Sinatra::Base
   get '/properties/new' do
     @name = session[:user].name
     erb :'properties/new', :layout => :layout_logged_in
+  end
+
+  post '/properties/book' do
+    redirect '/properties'
   end
 
   get '/accounts' do
