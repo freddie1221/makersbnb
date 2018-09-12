@@ -22,7 +22,7 @@ end
 feature 'login' do
   scenario 'user enters login details' do
     add_user_james
-    visit '/sessions/new'
+    visit '/session/new'
     expect(page).to have_content('Please login below')
     login
     expect(page).to have_content('Book a Property')
@@ -31,7 +31,7 @@ feature 'login' do
   feature 'property' do
     scenario 'user clicks the \'List a Property\' button' do
       add_user_james
-      visit '/sessions/new'
+      visit '/session/new'
       login
       expect(page).to have_content('Book a Property')
       click_button 'List a Property'
@@ -39,17 +39,16 @@ feature 'login' do
     end
   end
 
-  feature 'show properties' do
-    scenario 'user clicks the \'Show Properties\' button' do
-
-      visit '/properties'
-      expect(page).to have_content('Book a Property')
-      fill_in('date_from', with: '22/09/2018')
-      fill_in('date_to', with: '24/09/2018')
-      click_button 'Show Properties'
-      expect(page).to have_content('Book a Property')
-    end
-  end
+# feature 'show properties' do
+#   scenario 'user clicks the \'Show Properties\' button' do
+#     visit '/properties'
+#     expect(page).to have_content('Book a Property')
+#     fill_in('date_from', with: '22/09/2018')
+#     fill_in('date_to', with: '24/09/2018')
+#     click_button 'Show Properties'
+#     expect(page).to have_content('Book a Property')
+#   end
+# end
 
 #  feature 'create a property' do
 #   scenario 'user enters property details' do
