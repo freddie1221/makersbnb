@@ -7,16 +7,18 @@ accounts = [
   {name: 'James Malvern',     email: 'ilovekongee@yahoo.co.uk'}
 ]
 
-
-properties = [
-  {location: 'London', price: 1000, account_id: 1 },
-  {location: 'Brighton', price: 700, account_id: 1 }
-]
-
 accounts.each do |account|
   Account.create(account)
 end
 
+mal = Account.find_by(email: 'scarfsniffer@gmail.com')
+james = Account.find_by(email: 'ilovekongee@yahoo.co.uk')
+
+
+properties = [
+  {location: 'London', price: 1000, account_id: mal.id },
+  {location: 'Brighton', price: 700, account_id: james.id }
+]
 
 properties.each do |property|
   Property.create(property)
