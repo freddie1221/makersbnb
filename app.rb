@@ -21,8 +21,6 @@ class Makersbnb < Sinatra::Base
   # What should this class do when it is called by rackup?
   # before, the only thing which app.rb did other than declare methods was:
   
-  # run! if app_file == $0
-  # I think this ^ is what is called by rackup. Nope. 
   
   # I think there can be some more config in here
   configure do

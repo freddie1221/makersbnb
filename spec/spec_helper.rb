@@ -18,6 +18,7 @@
 ENV['RACK_ENV'] = 'test'
 
 require File.join(File.dirname(__FILE__), '..', './app/controllers/properties_controller.rb')
+# not sure if this will correctly point to app.rb
 
 
 require 'capybara'
