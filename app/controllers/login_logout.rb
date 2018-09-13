@@ -32,7 +32,4 @@ class Makersbnb < Sinatra::Base
     end
   end
 
-  #  I'm assuming that Rackup won't know where to go to find the views
-  # So it will crash on hitting the route path
-  # Sinatra docs can tell me where to set configuration so that it finds them
 end

@@ -5,8 +5,9 @@ require 'sinatra/activerecord'
 require 'bcrypt'
 
 # requiring the routes
-require './app/controllers/test_controller_1'
-require './app/controllers/test_controller_2'
+require './app/controllers/properties.rb'
+require './app/controllers/login_logout.rb'
+require './app/controllers/bookings.rb'
 
 # requiring the models
 require './app/models/account.rb'
