@@ -21,12 +21,14 @@
 
   </form>
 
-  <ul>
+  <dl>
     <% @properties.each do |property| %>
-    <li>
-      <%= property.name %>
-    </li>
+      <textarea readonly name="property" cols="" rows="10">
+        <%= property.name %>
+        <%= property.description %>
+        <%= property.price %>
+      </textarea>
     <% end %>
-  </ul>
+  </dl>
 
 </div>
