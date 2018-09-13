@@ -2,8 +2,21 @@ require 'sinatra/base'
 require 'sinatra'
 require 'sinatra/activerecord'
 require 'bcrypt'
+require 'rake'
 
-set :database, "sqlite3:makersbnb.db.sqlite3"
+require './lib/account.rb'
+require './lib/property.rb'
+
+rake = Rake.application
+rake.init
+rake.load_rakefile
+
+if ENV['RACK_ENV'] == 'test'
+  set :database, "sqlite3:makersbnb_test.db.sqlite3"
+  rake['db:setup'].invoke
+else
+  set :database, "sqlite3:makersbnb.db.sqlite3"
+end
 
 class Makersbnb < Sinatra::Base
   enable :sessions
@@ -75,5 +88,4 @@ class Makersbnb < Sinatra::Base
   run! if app_file == $0
 end
 
-require './lib/account.rb'
-require './lib/property.rb'
+
