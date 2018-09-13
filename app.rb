@@ -10,8 +10,8 @@ rake.load_rakefile
 
 
 if ENV['RACK_ENV'] == 'test'
-  rake['db:setup']
   set :database, "sqlite3:makersbnb_test.db.sqlite3"
+  rake['db:setup'].invoke
 else
   set :database, "sqlite3:makersbnb.db.sqlite3"
 end

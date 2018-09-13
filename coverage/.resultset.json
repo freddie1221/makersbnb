@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/andrewgibbs/Projects/makersbnb/spec/account_spec.rb": [
+      "/Users/malachygilchrist/Coding/Projects/makersbnb/spec/account_spec.rb": [
         null,
         null,
         null,
@@ -16,7 +16,7 @@
         null,
         null
       ],
-      "/Users/andrewgibbs/Projects/makersbnb/spec/features/features_spec.rb": [
+      "/Users/malachygilchrist/Coding/Projects/makersbnb/spec/features/features_spec.rb": [
         1,
         null,
         1,
@@ -122,11 +122,11 @@
         null,
         null
       ],
-      "/Users/andrewgibbs/Projects/makersbnb/spec/home_spec.rb": [
+      "/Users/malachygilchrist/Coding/Projects/makersbnb/spec/home_spec.rb": [
         1,
         null
       ]
     },
-    "timestamp": 1536848560
+    "timestamp": 1536849384
   }
 }
