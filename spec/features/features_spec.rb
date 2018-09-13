@@ -37,6 +37,19 @@ feature 'login' do
       click_button 'List a Property'
       expect(page).to have_content('Please fill in the property form below')
     end
+
+    scenario 'user list a property' do
+      add_user_james
+      visit '/session/new'
+      login
+      click_button 'List a Property'
+      fill_in('name', with: 'The Ritz')
+      fill_in('description', with: 'The most palacious hotel you ever stayed in')
+      fill_in('price_per_night', with: '1000')
+      click_button 'List my Property'
+      expect(page).to have_content('The Ritz')
+    end
+
   end
 
   feature 'logout' do
