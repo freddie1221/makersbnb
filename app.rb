@@ -5,8 +5,7 @@ require 'sinatra/activerecord'
 require 'bcrypt'
 require 'rake'
 
-require './lib/account.rb'
-require './lib/property.rb'
+
 
 rake = Rake.application
 rake.init

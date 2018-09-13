@@ -20,7 +20,6 @@ ENV['RACK_ENV'] = 'test'
 require File.join(File.dirname(__FILE__), '..', './app.rb')
 # not sure if this will correctly point to app.rb
 
-
 require 'capybara'
 require 'capybara/rspec'
 require 'simplecov'
