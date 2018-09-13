@@ -32,13 +32,5 @@ class LoginLogout < Sinatra::Base
     end
   end
 
-  # Intend to move these methods into a helpers? file
-  def is_logged_in?
-    current_user != nil
-  end
-
-  def current_user
-    session[:user_id]
-  end
 
 end
