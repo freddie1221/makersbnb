@@ -40,19 +40,13 @@ class Makersbnb < Sinatra::Base
   end
 
   get '/properties' do
-    if is_logged_in?
-      erb :'properties/index', :layout => :layout_logged_in
-    else
-      redirect '/session/new'
-    end
+    redirect '/session/new' unless is_logged_in?
+    erb :'properties/index', :layout => :layout_logged_in
   end
 
   get '/properties/new' do
-    if is_logged_in?
-      erb :'properties/new', :layout => :layout_logged_in
-    else
-      redirect '/session/new'
-    end
+    redirect '/session/new' unless is_logged_in?
+    erb :'properties/new', :layout => :layout_logged_in
   end
 
   post '/properties' do
