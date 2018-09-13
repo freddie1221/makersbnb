@@ -57,7 +57,7 @@ class Makersbnb < Sinatra::Base
 
   post '/properties' do
     # Store property in database
-    property = {location: params[:location], description: params[:description], price: params[:price], account_id: params[:user_id]} 
+    property = {name: params[:name], description: params[:description], price: params[:price], account_id: params[:user_id]} 
     Property.create(property)
     redirect '/properties'
   end
