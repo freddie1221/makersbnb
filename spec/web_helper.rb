@@ -26,3 +26,10 @@ def login
   fill_in('password', with: 'password')
   click_button 'Login'
 end
+
+def list_ritz
+  fill_in('name', with: 'The Ritz')
+  fill_in('description', with: 'The most palacious hotel you ever stayed in')
+  fill_in('price_per_night', with: '1000')
+  click_button 'List my Property'
+end
