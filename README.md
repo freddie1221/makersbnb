@@ -160,3 +160,9 @@ id|  property id  |  requester id  |  date of stay  |  confirmed
 Any booking request made will be stored in the bookings table. 
 Bookings will have an associated property id, requester id, date of stay and confirmation status. 
 
+## Navigating the Site ##
+
+The home page displays a registration form and a link to login. 
+Once a user has either registered or logged the property listings page is displayed.
+From here users can view available listings or click a button to make their own listing.
+After listing a property the user is sent back to the property listings page.
