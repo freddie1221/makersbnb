@@ -5,6 +5,10 @@
  .container {
    margin-top: 50px
  }
+
+ #property {
+  margin-top: 20px
+}
  
  .container, h2 {
   text-align: center;
