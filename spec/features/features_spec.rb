@@ -6,6 +6,7 @@ feature 'home page' do
 
   scenario 'enters name and email address' do
     visit '/'
+    p ENV['RACK_ENV']
     expect(page).to have_content('Please fill in the registration form below')
     register
     expect(page).to have_content('Book a Property')

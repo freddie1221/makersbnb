@@ -16,8 +16,8 @@ james = Account.find_by(email: 'ilovekongee@yahoo.co.uk')
 
 
 properties = [
-  {location: 'London', price: 1000, account_id: mal.id },
-  {location: 'Brighton', price: 700, account_id: james.id }
+  {name: 'The Ritz', description: 'a dive', price: 1000, account_id: mal.id },
+  {name: 'The Balmoral', description: 'a luxurious hotel in the heart of Edinburgh', price: 700, account_id: james.id }
 ]
 
 properties.each do |property|
