@@ -41,6 +41,7 @@ class Makersbnb < Sinatra::Base
 
   get '/properties' do
     redirect '/session/new' unless is_logged_in?
+    @properties = Property.all
     erb :'properties/index', :layout => :layout_logged_in
   end
 
@@ -52,7 +53,6 @@ class Makersbnb < Sinatra::Base
   post '/properties' do
     # Store property in database
     property = {name: params[:name], description: params[:description], price: params[:price_per_night].to_i, account_id: session[:user_id]}
-    p property
     Property.create(property)
     redirect '/properties'
   end
