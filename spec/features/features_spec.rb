@@ -1,12 +1,10 @@
+before(:each) do
+  clear_tables
+end
+
 feature 'home page' do
-
-  before(:each) do
-    clear_tables
-  end
-
-  scenario 'enters name and email address' do
+  scenario 'user registers' do
     visit '/'
-    p ENV['RACK_ENV']
     expect(page).to have_content('Please fill in the registration form below')
     register
     expect(page).to have_content('Book a Property')
@@ -17,61 +15,57 @@ feature 'home page' do
     click_link 'Login'
     expect(page).to have_content('Please login below')
   end
+end
 
+before(:each) do
+  add_user_james
 end
 
 feature 'login' do
   scenario 'user enters login details' do
-    add_user_james
     visit '/session/new'
     expect(page).to have_content('Please login below')
     login
     expect(page).to have_content('Book a Property')
   end
 
-  feature 'property' do
-    scenario 'user clicks the \'List a Property\' button' do
-      add_user_james
-      visit '/session/new'
-      login
-      expect(page).to have_content('Book a Property')
-      click_button 'List a Property'
-      expect(page).to have_content('Please fill in the property form below')
-    end
-
-    scenario 'user list a property' do
-      add_user_james
-      visit '/session/new'
-      login
-      click_button 'List a Property'
-      fill_in('name', with: 'The Ritz')
-      fill_in('description', with: 'The most palacious hotel you ever stayed in')
-      fill_in('price_per_night', with: '1000')
-      click_button 'List my Property'
-      expect(page).to have_content('The Ritz')
-    end
-
-  end
-
-  feature 'logout' do
-    scenario 'user clicks the \'logout\' button' do
-      add_user_james
-      visit '/session/new'
-      login
-      expect(page).to have_content('Book a Property')
-      click_link 'Sign out'
-      expect(page).to have_content('Please login below')
-    end
-  end
-
   feature 'session required to visit pages' do
     scenario 'redirected to login page if visiting /properties without session' do
-      add_user_james
       visit '/properties'
       expect(page).to have_content('Please login below')
     end
   end
+end
 
+feature 'logout' do
+  scenario 'user clicks the \'logout\' button' do
+    visit '/session/new'
+    login
+    expect(page).to have_content('Book a Property')
+    click_link 'Sign out'
+    expect(page).to have_content('Please login below')
+  end
+end
+
+feature 'property' do
+  scenario 'user clicks the \'List a Property\' button' do
+    visit '/session/new'
+    login
+    expect(page).to have_content('Book a Property')
+    click_button 'List a Property'
+    expect(page).to have_content('Please fill in the property form below')
+  end
+
+  scenario 'user list a property' do
+    visit '/session/new'
+    login
+    click_button 'List a Property'
+    list_ritz
+    expect(page).to have_content('The Ritz')
+    expect(page).to have_content('1000')
+    expect(page).to have_content('The most palacious hotel you ever stayed in')
+  end
+end
 
 # feature 'show properties' do
 #   scenario 'user clicks the \'Show Properties\' button' do
@@ -100,5 +94,3 @@ feature 'login' do
 #     expect(page).to have_content('26/12/18')
 #   end
 #  end
-
-end

@@ -4,10 +4,12 @@ require 'sinatra/activerecord'
 require 'bcrypt'
 require 'rake'
 
+require './lib/account.rb'
+require './lib/property.rb'
+
 rake = Rake.application
 rake.init
 rake.load_rakefile
-
 
 if ENV['RACK_ENV'] == 'test'
   set :database, "sqlite3:makersbnb_test.db.sqlite3"
@@ -86,5 +88,4 @@ class Makersbnb < Sinatra::Base
   run! if app_file == $0
 end
 
-require './lib/account.rb'
-require './lib/property.rb'
+
