@@ -1,5 +1,5 @@
 
-class Makersbnb < Sinatra::Base
+class LoginLogout < Sinatra::Base
 
   get '/' do
     erb :home, :layout => :layout
@@ -30,6 +30,15 @@ class Makersbnb < Sinatra::Base
     else
       'PASSWORD REJECTED'
     end
+  end
+
+  # Intend to move these methods into a helpers? file
+  def is_logged_in?
+    current_user != nil
+  end
+
+  def current_user
+    session[:user_id]
   end
 
 end

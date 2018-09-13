@@ -1,5 +1,5 @@
 
-class Makersbnb < Sinatra::Base
+class Bookings < Sinatra::Base
 
   get '/bookings' do
   end
