@@ -123,3 +123,12 @@ id    | owner id  |   name    |   location   |   £/night
 
 These two tables should be enough to satisfy the MVP.
 When users begin booking rooms a Bookings table will be required
+
+
+
+## To get this application working locally
+git clone git@github.com:freddie1221/makersbnb.git
+shell $ bundle install
+shell $ rake db:setup
+shell $ rake db:seed
+shell $ bundle exec rackup
