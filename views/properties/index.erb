@@ -1,10 +1,7 @@
 <div class="container">
-  <p>Book a Property</p>
   <form action="/properties/new">
     <button class="btn btn-primary center-block">List a Property</button>
   </form>
- <br>
- <br>
 
   <form action="/properties/book" method="post">
     <div class="form-group">
@@ -15,20 +12,25 @@
       <label for="usr">Available To (DD/MM/YY):</label>
       <input type="date" class="form-control" id="usr" name="date_to">
     </div>
-
-
-    <button type="submit" class="btn btn-primary btn-block">Book Property</button>
-
   </form>
+</div>
 
-  <dl>
+<div class="container">
+  <ul class="list-group" >
     <% @properties.each do |property| %>
-      <textarea readonly name="property" cols="" rows="10">
-        <%= property.name %>
-        <%= property.description %>
-        <%= property.price %>
-      </textarea>
+      <li>
+        <div class="media">
+          <div class="media-left">
+            <img src="http://placekitten.com/g/190" class="media-object">
+          </div>
+          <div class="media-body">
+            <h4 class="media-heading"><%= property.name %></h4>
+            <p><%= property.description %></p>
+            <p id="price">£<%= property.price %> per night</p>
+          </div>
+        </div>
+      </li>
+      
     <% end %>
-  </dl>
-
+  </ul>
 </div>

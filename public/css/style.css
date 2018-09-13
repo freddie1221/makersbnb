@@ -1,16 +1,51 @@
-h2 {
+ body {
+  height: 1500px
+ }
+
+ .container {
+   margin-top: 50px
+ }
+ 
+ .container, h2 {
   text-align: center;
   color: black
 } 
 
 p {
-  text-align: center;
+  text-align: left;
   color: #3679B1
 }
 
-
-#registration-box {
-  margin: auto;
-  width: 30%;
+#book-property-title  {
+  text-align: center
 }
 
+.container, h4 {
+  text-align: left;
+  color: black
+} 
+
+#price {
+  color: #000;
+}
+
+li {
+  /* padding: 10px; */
+  list-style-type: none;
+}
+
+.container li { 
+  background: #ffffff; 
+  text-align: left;
+  padding: 10px
+}
+.container li:nth-child(odd) { 
+  background: #D3D3D3; 
+}
+
+@media only screen and (max-width: 800px) {
+  .container {
+    margin-top: 80px;
+    margin-bottom: 20px;
+  }
+}
