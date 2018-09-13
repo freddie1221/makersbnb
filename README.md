@@ -127,8 +127,10 @@ When users begin booking rooms a Bookings table will be required
 
 
 ## To get this application working locally
-* shell $ git clone git@github.com:freddie1221/makersbnb.git
-* shell $ bundle install
-* shell $ rake db:setup
-* shell $ rake db:seed
-* shell $ bundle exec rackup
+```
+shell $ git clone git@github.com:freddie1221/makersbnb.git
+shell $ bundle install
+shell $ rake db:setup
+shell $ rake db:seed
+shell $ bundle exec rackup
+```
