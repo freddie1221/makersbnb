@@ -5,6 +5,7 @@
   </form>
  <br>
  <br>
+
   <form action="/properties/book" method="post">
     <div class="form-group">
       <label for="usr">Available From (DD/MM/YY):</label>
@@ -14,9 +15,13 @@
       <label for="usr">Available To (DD/MM/YY):</label>
       <input type="date" class="form-control" id="usr" name="date_to">
     </div>
-
-
-    
-
   </form>
+
+  <ul>
+    <% properties.each do |property| %>
+    <li>
+      <%= property.location %>
+    </li>
+    <% end %>
+  </ul>
 </div>

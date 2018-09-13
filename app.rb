@@ -35,6 +35,7 @@ class Makersbnb < Sinatra::Base
   end
 
   get '/properties' do
+    properties = Property.all
     erb :'properties/index', :layout => :layout_logged_in
   end
 
