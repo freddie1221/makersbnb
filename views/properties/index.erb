@@ -5,6 +5,7 @@
   </form>
  <br>
  <br>
+
   <form action="/properties/book" method="post">
     <div class="form-group">
       <label for="usr">Available From (DD/MM/YY):</label>
@@ -19,4 +20,15 @@
     <button type="submit" class="btn btn-primary btn-block">Book Property</button>
 
   </form>
+
+  <dl>
+    <% @properties.each do |property| %>
+      <textarea readonly name="property" cols="" rows="10">
+        <%= property.name %>
+        <%= property.description %>
+        <%= property.price %>
+      </textarea>
+    <% end %>
+  </dl>
+
 </div>
