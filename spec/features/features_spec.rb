@@ -39,6 +39,26 @@ feature 'login' do
     end
   end
 
+  feature 'logout' do
+    scenario 'user clicks the \'logout\' button' do
+      add_user_james
+      visit '/session/new'
+      login
+      expect(page).to have_content('Book a Property')
+      click_link 'Sign out'
+      expect(page).to have_content('Please login below')
+    end
+  end
+
+  feature 'session required to visit pages' do
+    scenario 'redirected to login page if visiting /properties without session' do
+      add_user_james
+      visit '/properties'
+      expect(page).to have_content('Please login below')
+    end
+  end
+
+
 # feature 'show properties' do
 #   scenario 'user clicks the \'Show Properties\' button' do
 #     visit '/properties'

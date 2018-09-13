@@ -23,11 +23,9 @@ class Makersbnb < Sinatra::Base
     erb :login
   end
 
-  get '/session/delete' do
-    p session
+  get '/logout' do
     session.clear
-    p session
-    redirect '/'
+    redirect '/session/new'
   end
 
   post '/session' do
@@ -42,11 +40,19 @@ class Makersbnb < Sinatra::Base
   end
 
   get '/properties' do
-    erb :'properties/index', :layout => :layout_logged_in
+    if is_logged_in? 
+      erb :'properties/index', :layout => :layout_logged_in 
+    else
+      redirect '/session/new'
+    end
   end
 
   get '/properties/new' do
-    erb :'properties/new', :layout => :layout_logged_in
+    if is_logged_in?
+      erb :'properties/new', :layout => :layout_logged_in
+    else
+      redirect '/session/new'
+    end
   end
 
   post '/properties' do
@@ -57,6 +63,15 @@ class Makersbnb < Sinatra::Base
   end
 
   post '/bookings' do
+  end
+
+
+  def is_logged_in?
+    current_user != nil
+  end
+
+  def current_user
+    session[:user_id]
   end
 
   run! if app_file == $0
