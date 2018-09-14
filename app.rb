@@ -5,10 +5,6 @@ require 'sinatra/activerecord'
 require 'bcrypt'
 require 'rake'
 
-
-
-
-
 # requiring the routes
 require './app/controllers/properties.rb'
 require './app/controllers/login_logout.rb'
