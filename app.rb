@@ -1,13 +1,26 @@
+
 require 'sinatra/base'
 require 'sinatra'
 require 'sinatra/activerecord'
 require 'bcrypt'
 require 'rake'
 
+
+
+
+
+# requiring the routes
+require './app/controllers/properties.rb'
+require './app/controllers/login_logout.rb'
+require './app/controllers/bookings.rb'
+
+# requiring the models
+require './app/models/account.rb'
+require './app/models/property.rb'
+
 rake = Rake.application
 rake.init
 rake.load_rakefile
-
 
 if ENV['RACK_ENV'] == 'test'
   set :database, "sqlite3:makersbnb_test.db.sqlite3"
@@ -16,75 +29,43 @@ else
   set :database, "sqlite3:makersbnb.db.sqlite3"
 end
 
+
 class Makersbnb < Sinatra::Base
-  enable :sessions
-
-  get '/' do
-    erb :home, :layout => :layout
+  use LoginLogout
+  use Properties
+  use Bookings
+  
+  configure do
+    set :app_file, __FILE__
+    set :root, File.dirname(__FILE__)
+    set :views, Proc.new { File.join(root, "app/views") }
+    enable :sessions
   end
-
-  post '/' do
-    password = BCrypt::Password.create(params[:password])
-    Account.create({name: params[:name], email: params[:email], password: password})
-    session[:user_id] = Account.find_by(email: params[:email]).id
-    redirect '/properties'
-  end
-
-  get '/session/new' do
-    erb :login
-  end
-
-  get '/logout' do
-    session.clear
-    redirect '/session/new'
-  end
-
-  post '/session' do
-    account = Account.find_by(email: params[:email])
-    correct_password = BCrypt::Password.new(account.password)
-    if correct_password.is_password?(params[:password])
-      session[:user_id] = account.id
-      redirect '/properties'
-    else
-      'PASSWORD REJECTED'
-    end
-  end
-
-  get '/properties' do
-    redirect '/session/new' unless is_logged_in?
-    @properties = Property.all
-    erb :'properties/index', :layout => :layout_logged_in
-  end
-
-  get '/properties/new' do
-    redirect '/session/new' unless is_logged_in?
-    erb :'properties/new', :layout => :layout_logged_in
-  end
-
-  post '/properties' do
-    # Store property in database
-    property = {name: params[:name], description: params[:description], price: params[:price_per_night].to_i, account_id: session[:user_id]}
-    Property.create(property)
-    redirect '/properties'
-  end
-
-  get '/bookings' do
-  end
-
-  post '/bookings' do
-  end
-
-
-  def is_logged_in?
-    current_user != nil
-  end
-
-  def current_user
-    session[:user_id]
-  end
-
-  run! if app_file == $0
 end
 
-require './lib/account.rb'
-require './lib/property.rb'
+class LoginLogout < Sinatra::Base
+  configure do
+    set :app_file, __FILE__
+    set :root, File.dirname(__FILE__)
+    set :views, Proc.new { File.join(root, "app/views") }
+    enable :sessions
+  end
+end
+
+class Properties < Sinatra::Base
+  configure do
+    set :app_file, __FILE__
+    set :root, File.dirname(__FILE__)
+    set :views, Proc.new { File.join(root, "app/views") }
+    enable :sessions
+  end
+end
+
+class Bookings < Sinatra::Base
+  configure do
+    set :app_file, __FILE__
+    set :root, File.dirname(__FILE__)
+    set :views, Proc.new { File.join(root, "app/views") }
+    enable :sessions
+  end
+end
