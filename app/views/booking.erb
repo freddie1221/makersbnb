@@ -1,0 +1,25 @@
+<div class="container" id="booking">
+  <div class="media">
+
+    <div class="media-left">
+      <img src="http://placekitten.com/g/190" class="media-object">
+    </div>
+
+    <div class="media-body">
+      <h4 class="media-heading"><%= @property.name %></h4>
+      <p><%= @property.description %></p>
+      <p id="price">£<%= @property.price %> per night</p>
+    </div>
+
+    <form action="/bookings/<%= @property.id %>" method="post">
+
+      <label for="example-datetime-local-input" class="col-2 col-form-label">Date and time</label>
+      <div>
+        <input class="form-control" type="date" name="bookingdate" value="2018-09-14" id="example-datetime-local-input">
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">Book this property</button>
+
+    </form>
+
+  </div> 
+</div>
