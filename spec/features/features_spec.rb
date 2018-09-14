@@ -7,7 +7,7 @@ feature 'home page' do
     visit '/'
     expect(page).to have_content('Please fill in the registration form below')
     register
-    expect(page).to have_content('Book a Property')
+    expect(page).to have_content('List a Property')
   end
 
   scenario 'user clicks login link' do
@@ -26,7 +26,7 @@ feature 'login' do
     visit '/session/new'
     expect(page).to have_content('Please login below')
     login
-    expect(page).to have_content('Book a Property')
+    expect(page).to have_content('List a Property')
   end
 
   feature 'session required to visit pages' do
@@ -41,7 +41,7 @@ feature 'logout' do
   scenario 'user clicks the \'logout\' button' do
     visit '/session/new'
     login
-    expect(page).to have_content('Book a Property')
+    expect(page).to have_content('List a Property')
     click_link 'Sign out'
     expect(page).to have_content('Please login below')
   end
@@ -51,7 +51,7 @@ feature 'property' do
   scenario 'user clicks the \'List a Property\' button' do
     visit '/session/new'
     login
-    expect(page).to have_content('Book a Property')
+    expect(page).to have_content('List a Property')
     click_button 'List a Property'
     expect(page).to have_content('Please fill in the property form below')
   end
