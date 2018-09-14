@@ -166,15 +166,15 @@ The home page, below, displays a registration form and a link to the login page.
 
 ![Homepage](https://i.imgur.com/z0xASoU.png)
 
-On the home page, if the users selects the login menu option, there are taken to the login page.
+On the home page, if the users selects the 'Login' menu option, they are taken to the login page.
 
 ![Login](https://i.imgur.com/Z1eyXJP.png)
 
-On the home page, if the user registers, they are taken to the property listings page.
+On the home page, if the user registers, on clicking the 'Register' button, they are taken to the property listings page.
 
 ![Property Listings](https://i.imgur.com/G2HJWtB.png)
 
-From the property listings page, users can view available listings or click a button to make their own listing.
+From the property listings page, users can view available listings or click the 'List my Property' button to make their own listing.
 
 ![List a Property](https://i.imgur.com/ETJHQtn.png)
 
