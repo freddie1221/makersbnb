@@ -37,6 +37,7 @@ GEM
     mustermann (1.0.3)
     nokogiri (1.8.4)
       mini_portile2 (~> 2.3.0)
+    pg (1.1.2)
     public_suffix (3.0.3)
     rack (2.0.5)
     rack-protection (2.0.3)
@@ -89,6 +90,7 @@ DEPENDENCIES
   activerecord
   bcrypt
   capybara
+  pg
   rake
   rspec
   simplecov
