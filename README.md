@@ -166,8 +166,6 @@ The home page displays a registration form and a link to login.
 Once a user has either registered or logged the property listings page is displayed.
 From here users can view available listings or click a button to make their own listing.
 After listing a property the user is sent back to the property listings page.
-These two tables should be enough to satisfy the MVP.
-When users begin booking rooms a Bookings table will be required
 
 ## To get this application working locally ##
 ```
