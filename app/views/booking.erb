@@ -12,7 +12,13 @@
     </div>
 
     <form action="/bookings/<%= @property.id %>" method="post">
+
+      <label for="example-datetime-local-input" class="col-2 col-form-label">Date and time</label>
+      <div>
+        <input class="form-control" type="date" name="bookingdate" value="2018-09-14" id="example-datetime-local-input">
+      </div>
       <button type="submit" class="btn btn-primary btn-block">Book this property</button>
+
     </form>
 
   </div> 

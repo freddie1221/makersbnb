@@ -8,8 +8,10 @@ class Bookings < Sinatra::Base
   end
 
   post '/bookings/:id' do
-    booking = { account_id: session[:user_id], property_id: params[:id], confirmed: false }
+    booking = { account_id: session[:user_id], property_id: params[:id], date: params[:bookingdate], confirmed: false }
     Booking.create(booking)
+
+    p params
     redirect '/properties'
   end
 
