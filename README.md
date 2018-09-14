@@ -1,4 +1,4 @@
-q# MakersBnB #
+# MakersBnB #
 
 ### Stack ###
 
