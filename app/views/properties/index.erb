@@ -9,12 +9,12 @@
   <ul class="list-group" >
     <% @properties.each do |property| %>
       <a href="/bookings/<%= property.id %>" style="text-decoration: none">
-        <li style="margin-bottom:25px">
+        <li style="margin-bottom:25px" id="<%= property.id %>">
           <div class="media">
             <div class="media-left">
               <img src="http://placekitten.com/g/190" class="media-object">
             </div>
-            <div class="media-body">
+            <div class="media-body" style="word-wrap: break-word;">
               <h4 class="media-heading"><%= property.name %></h4>
               <p><%= property.description %></p>
               <p id="price">£<%= property.price %> per night</p>
