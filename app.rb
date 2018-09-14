@@ -7,6 +7,17 @@ require 'rake'
 
 
 
+
+
+# requiring the routes
+require './app/controllers/properties.rb'
+require './app/controllers/login_logout.rb'
+require './app/controllers/bookings.rb'
+
+# requiring the models
+require './app/models/account.rb'
+require './app/models/property.rb'
+
 rake = Rake.application
 rake.init
 rake.load_rakefile
@@ -17,15 +28,6 @@ if ENV['RACK_ENV'] == 'test'
 else
   set :database, "sqlite3:makersbnb.db.sqlite3"
 end
-
-# requiring the routes
-require './app/controllers/properties.rb'
-require './app/controllers/login_logout.rb'
-require './app/controllers/bookings.rb'
-
-# requiring the models
-require './app/models/account.rb'
-require './app/models/property.rb'
 
 
 class Makersbnb < Sinatra::Base
