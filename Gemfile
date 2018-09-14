@@ -16,4 +16,7 @@ gem 'simplecov-console'
 gem 'sinatra-activerecord'
 gem 'rake'
 gem 'pg'
-gem 'puma'
+
+group :production do
+  gem "puma"
+end
