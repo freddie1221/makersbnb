@@ -166,7 +166,7 @@ The home page, below, displays a registration form and a link to login.
 
 ![Homepage](https://i.imgur.com/z0xASoU.png)
 
-On the home page, if selects the login menu option, there are taken to the login page, below
+On the home page, if the users selects the login menu option, there are taken to the login page, below
 
 ![Login](https://i.imgur.com/Z1eyXJP.png)
 
