@@ -1,7 +1,7 @@
 
 class Bookings < Sinatra::Base
 
-  get '/bookings' do
+  get '/bookings/:id' do
   end
 
   post '/bookings' do
