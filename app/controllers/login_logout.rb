@@ -31,7 +31,7 @@ class LoginLogout < Sinatra::Base
         session[:user_id] = account.id
         redirect '/properties'
       else
-        'PASSWORD REJECTED'
+        'Incorrect password!'
       end
     end
   end
