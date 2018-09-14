@@ -162,23 +162,23 @@ Bookings will have an associated property id, requester id, date of stay and con
 
 ## Navigating the Site ##
 
-The home page, below, displays a registration form and a link to the login page.
+The Homepage, below, displays a registration form and a link to the Login page.
 
 ![Homepage](https://i.imgur.com/z0xASoU.png)
 
-On the home page, if the users selects the 'Login' menu option, they are taken to the login page.
+On the Homepage, if the users selects the Login menu option, they are taken to the Login page.
 
 ![Login](https://i.imgur.com/Z1eyXJP.png)
 
-On the home page, if the user registers, on clicking the 'Register' button, they are taken to the property listings page.
+On the Homepage, if the user registers, on clicking the Register button, they are taken to the Property Listings page.
 
 ![Property Listings](https://i.imgur.com/G2HJWtB.png)
 
-From the property listings page, users can view available listings or click the 'List my Property' button to make their own listing.
+From the Property Listings page, users can view available listings or click the List my Property button to make their own listing, on the page List a Property page, below.
 
 ![List a Property](https://i.imgur.com/ETJHQtn.png)
 
-After listing a property the user is sent back to the property listings page.
+After listing a property the user is sent back to the Property Listings page.
 
 
 ## To get this application working locally ##
