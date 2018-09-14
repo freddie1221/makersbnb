@@ -17,14 +17,16 @@
 
 ENV['RACK_ENV'] = 'test'
 
-require File.join(File.dirname(__FILE__), '..', 'app.rb')
+require File.join(File.dirname(__FILE__), '..', './app.rb')
+# not sure if this will correctly point to app.rb
 
 require 'capybara'
 require 'capybara/rspec'
 require 'simplecov'
 require 'simplecov-console'
 require 'rspec'
-require 'account'
+require './app/models/account'
+require './app/models/property'
 
 require './spec/web_helper'
 
