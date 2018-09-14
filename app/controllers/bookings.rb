@@ -7,7 +7,10 @@ class Bookings < Sinatra::Base
     erb :booking, :layout => :layout_logged_in
   end
 
-  post '/bookings' do
+  post '/bookings/:id' do
+    booking = { account_id: session[:user_id], property_id: params[:id], confirmed: false }
+    Booking.create(booking)
+    redirect '/properties'
   end
 
 end

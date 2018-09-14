@@ -10,6 +10,10 @@
       <p><%= @property.description %></p>
       <p id="price">£<%= @property.price %> per night</p>
     </div>
-    
+
+    <form action="/bookings/<%= @property.id %>" method="post">
+      <button type="submit" class="btn btn-primary btn-block">Book this property</button>
+    </form>
+
   </div> 
 </div>

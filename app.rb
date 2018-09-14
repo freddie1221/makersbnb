@@ -13,6 +13,8 @@ require './app/controllers/bookings.rb'
 # requiring the models
 require './app/models/account.rb'
 require './app/models/property.rb'
+require './app/models/booking.rb'
+
 
 rake = Rake.application
 rake.init
