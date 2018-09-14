@@ -8,18 +8,20 @@
 <div class="container" id="property">
   <ul class="list-group" >
     <% @properties.each do |property| %>
-      <li>
-        <div class="media">
-          <div class="media-left">
-            <img src="http://placekitten.com/g/190" class="media-object">
+      <a href="/bookings/<%= property.id %>" style="text-decoration: none">
+        <li>
+          <div class="media">
+            <div class="media-left">
+              <img src="http://placekitten.com/g/190" class="media-object">
+            </div>
+            <div class="media-body">
+              <h4 class="media-heading"><%= property.name %></h4>
+              <p><%= property.description %></p>
+              <p id="price">£<%= property.price %> per night</p>
+            </div>
           </div>
-          <div class="media-body">
-            <h4 class="media-heading"><%= property.name %></h4>
-            <p><%= property.description %></p>
-            <p id="price">£<%= property.price %> per night</p>
-          </div>
-        </div>
-      </li>   
+        </li>   
+      </a>
     <% end %>
   </ul>
 </div>
