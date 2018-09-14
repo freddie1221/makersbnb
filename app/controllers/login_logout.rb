@@ -25,13 +25,15 @@ class LoginLogout < Sinatra::Base
     account = Account.find_by(email: params[:email])
     if account == nil
       'Account not found!'
-    else 
+      redirect 'session/new'
+    else
       correct_password = BCrypt::Password.new(account.password)
       if correct_password.is_password?(params[:password])
         session[:user_id] = account.id
         redirect '/properties'
       else
         'incorrect password!'
+        redirect 'session/new'
       end
     end
   end
