@@ -97,7 +97,7 @@ knows, name        | User (host)
 
 There is a one to many relationship between an account and listed properties, one user can list multiple properties.
 As such it is necessary to have a table for properties seperate from accounts, each property listed will be associated with a user account.
-Making this association in Active Record introduces a secondary feature, 
+Making this association in Active Record introduces a secondary feature,
 whereby in deleting an account from the 'accounts' database any data in the 'properties' table tied to that account will also be removed.
 
 #### Further Features ####
@@ -157,21 +157,34 @@ id|  property id  |  requester id  |  date of stay  |  confirmed
 4 |        3      |        9       |    29/02/20    |    true
 ```
 
-Any booking request made will be stored in the bookings table. 
-Bookings will have an associated property id, requester id, date of stay and confirmation status. 
+Any booking request made will be stored in the bookings table.
+Bookings will have an associated property id, requester id, date of stay and confirmation status.
 
 ## Navigating the Site ##
 
-The home page displays a registration form and a link to login. 
-Once a user has either registered or logged the property listings page is displayed.
-From here users can view available listings or click a button to make their own listing.
-After listing a property the user is sent back to the property listings page.
+The Homepage, below, displays a registration form and a link to the Login page.
+
+![Homepage](https://i.imgur.com/z0xASoU.png)
+
+On the Homepage, if the users selects the Login menu option, they are taken to the Login page.
+
+![Login](https://i.imgur.com/Z1eyXJP.png)
+
+On the Homepage, if the user registers, on clicking the Register button, they are taken to the Property Listings page.
+
+![Property Listings](https://i.imgur.com/G2HJWtB.png)
+
+From the Property Listings page, users can view available listings or click the List my Property button to make their own listing, on the page List a Property page, below.
+
+![List a Property](https://i.imgur.com/ETJHQtn.png)
+
+After listing a property the user is sent back to the Property Listings page.
+
 
 ## To get this application working locally ##
 ```
 shell $ git clone git@github.com:freddie1221/makersbnb.git
 shell $ bundle install
 shell $ rake db:setup
-shell $ rake db:seed
 shell $ rackup
 ```
