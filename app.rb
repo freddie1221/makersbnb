@@ -4,6 +4,7 @@ require 'sinatra'
 require 'sinatra/activerecord'
 require 'bcrypt'
 require 'rake'
+require 'pg'
 
 # requiring the routes
 require './app/controllers/properties.rb'
@@ -21,11 +22,23 @@ rake.init
 rake.load_rakefile
 
 if ENV['RACK_ENV'] == 'test'
-  set :database, "sqlite3:makersbnb_test.db.sqlite3"
+  set :database, {
+    adapter: 'postgresql',  
+    encoding: 'unicode', 
+    database: 'makersbnb_postrgres_test_db', 
+    pool: 2
+    }
+  # set :database, "sqlite3:makersbnb_test.db.sqlite3"
   rake['db:setup'].invoke
 else
-  set :database, "sqlite3:makersbnb.db.sqlite3"
+  set :database, {
+    adapter: 'postgresql',  
+    encoding: 'unicode', 
+    database: 'makersbnb_postrgres_db', 
+    pool: 2
+    }
 end
+
 
 
 class Makersbnb < Sinatra::Base
