@@ -34,7 +34,7 @@ if ENV['RACK_ENV'] == 'test'
     adapter: 'postgresql',  
     encoding: 'unicode', 
     database: 'makersbnb_postrgres_test_db', 
-    pool: 2
+    pool: 5
     }
   
   rake['db:setup'].invoke
@@ -42,8 +42,8 @@ else
   set :database, {
     adapter: 'postgresql',  
     encoding: 'unicode', 
-    database: 'postgres://zxdfnifnyahpvu:8ed29c10401d803c4705837879e14ea4342d4157129a7fc6daba9c722163e58e@ec2-23-23-253-106.compute-1.amazonaws.com:5432/d1s6q788atlro9', 
-    pool: 2
+    database: ENV['DATABASE_URL'], 
+    pool: 5
     }
 end
 
