@@ -42,7 +42,7 @@ else
   set :database, {
     adapter: 'postgresql',  
     encoding: 'unicode', 
-    database: ENV['DATABASE_URL'], 
+    database: 'postgresql-spherical-68068', 
     pool: 5
     }
 end
