@@ -42,7 +42,8 @@ else
   set :database, {
     adapter: 'postgresql',  
     encoding: 'unicode', 
-    database: 'postgresql-spherical-68068', 
+    database: 'makersbnb_postrgres_db',
+    url: ENV['DATABASE_URL'],
     pool: 5
     }
 end
