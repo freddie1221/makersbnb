@@ -6,6 +6,14 @@ require 'bcrypt'
 require 'rake'
 require 'pg'
 
+
+# class Makersbnb < Sinatra::Base
+#   get '/' do
+#     'Goodbye world!'
+#   end
+# end
+
+# I'm fairly sure this is all just config. Perhaps we aren't setting env properly
 # requiring the routes
 require './app/controllers/properties.rb'
 require './app/controllers/login_logout.rb'
@@ -16,10 +24,10 @@ require './app/models/account.rb'
 require './app/models/property.rb'
 require './app/models/booking.rb'
 
-
-rake = Rake.application
-rake.init
-rake.load_rakefile
+# It looks like this Rake job is failing. The rakefile has nothing in it. Yep, that was causing the failure
+# rake = Rake.application
+# rake.init
+# rake.load_rakefile
 
 if ENV['RACK_ENV'] == 'test'
   set :database, {
@@ -28,17 +36,16 @@ if ENV['RACK_ENV'] == 'test'
     database: 'makersbnb_postrgres_test_db', 
     pool: 2
     }
-  # set :database, "sqlite3:makersbnb_test.db.sqlite3"
+  
   rake['db:setup'].invoke
 else
   set :database, {
     adapter: 'postgresql',  
     encoding: 'unicode', 
-    database: 'makersbnb_postrgres_db', 
+    database: 'postgres://zxdfnifnyahpvu:8ed29c10401d803c4705837879e14ea4342d4157129a7fc6daba9c722163e58e@ec2-23-23-253-106.compute-1.amazonaws.com:5432/d1s6q788atlro9', 
     pool: 2
     }
 end
-
 
 
 class Makersbnb < Sinatra::Base
