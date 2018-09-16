@@ -6,14 +6,6 @@ require 'bcrypt'
 require 'rake'
 require 'pg'
 
-
-# class Makersbnb < Sinatra::Base
-#   get '/' do
-#     'Goodbye world!'
-#   end
-# end
-
-# I'm fairly sure this is all just config. Perhaps we aren't setting env properly
 # requiring the routes
 require './app/controllers/properties.rb'
 require './app/controllers/login_logout.rb'
@@ -24,7 +16,7 @@ require './app/models/account.rb'
 require './app/models/property.rb'
 require './app/models/booking.rb'
 
-# It looks like this Rake job is failing. The rakefile has nothing in it. Yep, that was causing the failure
+# It looks like this Rake job is failing. Yep, that was causing the failure
 # rake = Rake.application
 # rake.init
 # rake.load_rakefile
